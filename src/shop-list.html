@@ -16,6 +16,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shop-image.html">
 <link rel="import" href="shop-list-item.html">
 
+
+
+<link rel="import" href="shop-button.html">
+<link rel="import" href="shop-image.html">
+<link rel="import" href="shop-select.html">
+<link rel="import" href="shop-add-to-cart.html">
+
+
 <dom-module id="shop-list">
 
   <template>
@@ -55,6 +63,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         -webkit-flex-basis: 33%;
         flex-basis: 33%;
         max-width: 33%;
+        text-align: center;
       }
 
       .grid a {
@@ -106,7 +115,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <ul class="grid" hidden$="[[failure]]">
       <template is="dom-repeat" items="[[_getListItems(category.items)]]" initial-count="4">
         <li>
-          <a href$="[[_getItemHref(item)]]"><shop-list-item item="[[item]]"></shop-list-item></a>
+          <!--<a href$="[[_getItemHref(item)]]">-->
+          <shop-list-item item="[[item]]"></shop-list-item>
+          <shop-add-to-cart item="[[item]]"></shop-add-to-cart>
+          <!--</a>-->
         </li>
       </template>
     </ul>
